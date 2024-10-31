@@ -1,0 +1,35 @@
+def rearrange_numbers():
+    # Read the input from the file
+    with open("rosalind_par3.txt") as f:
+        n = int(f.readline().strip())  # Read the first line for the number of elements
+        A = list(map(int, f.readline().split()))  # Read the second line and convert to a list of integers
+
+    # Set the first element as the pivot
+    pivot = A[0]
+    less_than_pivot = []
+    equal_to_pivot = []
+    greater_than_pivot = []
+
+    # Iterate through the list
+    for number in A:
+        if number < pivot:  # If the number is less than the pivot
+            less_than_pivot.append(number)
+        elif number == pivot:  # If the number is equal to the pivot
+            equal_to_pivot.append(number)
+        else:  # If the number is greater than the pivot
+            greater_than_pivot.append(number)
+
+    # Create the rearranged output: 
+    # Start with the elements less than pivot in reverse order
+    rearranged = less_than_pivot[::-1] + equal_to_pivot + greater_than_pivot
+
+    # Return the rearranged numbers as a space-separated string
+    return ' '.join(map(str, rearranged))
+
+if name == "__main__":
+    # Get the rearranged numbers
+    output = rearrange_numbers()
+
+    # Write the output to a file
+    with open('output_par3.txt', 'w') as g:
+        g.write(output)
