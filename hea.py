@@ -27,5 +27,5 @@ def main():
     create_max_heap(numbers)
     print(' '.join(map(str, numbers)))
 
-if name == '__main__':
+if __name__ == '__main__':
     main()
