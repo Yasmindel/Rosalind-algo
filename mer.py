@@ -9,10 +9,21 @@ def count_swaps_in_insertion_sort(arr):
             current -= 1
     return swaps
 
-def main():
-    n = int(input("Enter the number of elements: "))
-    arr = list(map(int, input("Enter the elements separated by spaces: ").split()))
-    print("Number of swaps:", count_swaps_in_insertion_sort(arr))
+def merge_and_sort(arr1, arr2):
+    # Combine the two arrays
+    combined = arr1 + arr2
+    # Sort the combined array using insertion sort
+    count_swaps_in_insertion_sort(combined)
+    return combined
 
-if name == '__main__':
+def main():
+    # Sample dataset
+    arr1 = [2, 4, 10, 18]  # First dataset
+    arr2 = [-5, 11, 12]    # Second dataset
+
+    # Merge and sort both arrays
+    sorted_array = merge_and_sort(arr1, arr2)
+    print(' '.join(map(str, sorted_array)))
+
+if __name__ == '__main__':
     main()
