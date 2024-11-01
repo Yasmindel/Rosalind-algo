@@ -10,7 +10,7 @@ def rearrange_numbers():
     equal_to_pivot = []
     greater_than_pivot = []
 
-    # Iterate through the list
+    # Iterate through the list and classify numbers based on the pivot
     for number in A:
         if number < pivot:  # If the number is less than the pivot
             less_than_pivot.append(number)
@@ -19,14 +19,13 @@ def rearrange_numbers():
         else:  # If the number is greater than the pivot
             greater_than_pivot.append(number)
 
-    # Create the rearranged output: 
-    # Start with the elements less than pivot in reverse order
+    # Rearrange the list: less_than_pivot (reversed) + equal_to_pivot + greater_than_pivot
     rearranged = less_than_pivot[::-1] + equal_to_pivot + greater_than_pivot
 
     # Return the rearranged numbers as a space-separated string
     return ' '.join(map(str, rearranged))
 
-if name == "__main__":
+if __name__ == "__main__":
     # Get the rearranged numbers
     output = rearrange_numbers()
 
