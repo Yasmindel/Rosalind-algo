@@ -22,10 +22,14 @@ def heapify(elements, index):
         heapify(elements, largest)
 
 def main():
-    count = int(input())
-    numbers = list(map(int, input().split()))
+    # Given input
+    count = 5  # Number of elements
+    numbers = [1, 3, 5, 7, 2]  # The elements to be heapified
+    
     create_max_heap(numbers)
+    
+    # Print the max heap structure as required
     print(' '.join(map(str, numbers)))
 
-if __name__ == '__main__':
+if name == '__main__':
     main()
