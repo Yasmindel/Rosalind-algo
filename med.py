@@ -1,30 +1,30 @@
-def partition(arr):
-    pivot = arr[0]
-    left, right = 0, len(arr) - 1
-    while left < right:
-        while left < right and arr[right] > pivot:
+def partition(a):
+    pivot = a[0]
+    left, right = 0, len(a) - 1
+    while left != right:
+        while right != left and a[right] > pivot:
             right -= 1
-        arr[left] = arr[right]
-        while left < right and arr[left] <= pivot:
+        a[left], a[right] = a[right], a[left]
+        while left != right and a[left] <= pivot:
             left += 1
-        arr[right] = arr[left]
-    arr[left] = pivot
+        a[left], a[right] = a[right], a[left]
     return left
 
-def find_kth_smallest(arr, k):
-    pos = partition(arr)
+def find_kth_smallest_element(a, k):
+    pos = partition(a)
     if pos == k - 1:
-        return arr[pos]
+        return a[pos]
     elif pos < k - 1:
-        return find_kth_smallest(arr[pos + 1:], k - pos - 1)
+        return find_kth_smallest_element(a[pos + 1:], k - pos - 1)
     else:
-        return find_kth_smallest(arr[:pos], k)
+        return find_kth_smallest_element(a[:pos], k)
 
 def main():
-    n = int(input("Enter number of elements: "))
-    arr = list(map(int, input("Enter elements: ").split()))
-    k = int(input("Enter k (1-based index): "))
-    print("The", k, "th smallest element is:", find_kth_smallest(arr, k))
+    # Dataset directly included
+    n = 11
+    a = [2, 36, 5, 21, 8, 13, 11, 20, 5, 4, 1]
+    k = 8
+    print(find_kth_smallest_element(a, k))
 
-if name == '__main__':
+if __name__ == '__main__':
     main()
