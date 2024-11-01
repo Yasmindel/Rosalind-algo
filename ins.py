@@ -10,9 +10,16 @@ def count_swaps_in_insertion_sort(arr):
     return swaps
 
 def main():
-    n = int(input("Enter the number of elements: "))
-    arr = list(map(int, input("Enter the elements separated by spaces: ").split()))
-    print("Number of swaps:", count_swaps_in_insertion_sort(arr))
+    # Input: number of elements
+    n = int(input())  # Read the number of elements
+    # Input: elements of the array
+    arr = list(map(int, input().split()))
+    
+    # Count swaps and sort the array
+    swap_count = count_swaps_in_insertion_sort(arr)
+    
+    # Output: number of swaps and the sorted array
+    print(swap_count)  # Output just the number of swaps
 
-if name == '__main__':
+if __name__ == '__main__':
     main()
