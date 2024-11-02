@@ -1,18 +1,27 @@
-def count_swaps_in_insertion_sort(arr):
-    swaps = 0
-    for i in range(1, len(arr)):
-        current = i
-        while current > 0 and arr[current] < arr[current - 1]:
-            # Swap the elements
-            arr[current], arr[current - 1] = arr[current - 1], arr[current]
-            swaps += 1
-            current -= 1
-    return swaps
+def par():
+    # Predefined dataset
+    A = [7, 2, 5, 6, 1, 3, 9, 4, 8]  # Elements of the array
+    
+    # Initialize lists to hold the results
+    B = []
+    
+    # Separate elements based on a custom condition
+    for num in A:
+        if num < 7:  # Since 7 is the first number and we want numbers less than it first
+            B.append(num)
+    
+    # Add the first number (7)
+    B.append(7)
+    
+    # Add the remaining numbers greater than 7 in sorted order
+    for num in A:
+        if num > 7:
+            B.append(num)
 
-def main():
-    n = int(input("Enter the number of elements: "))
-    arr = list(map(int, input("Enter the elements separated by spaces: ").split()))
-    print("Number of swaps:", count_swaps_in_insertion_sort(arr))
+    return ' '.join(map(str, B))
 
-if name == '__main__':
-    main()
+if __name__ == "__main__":
+    a = par()
+    with open('output_par.txt', 'w') as g:
+        g.write(a)
+
