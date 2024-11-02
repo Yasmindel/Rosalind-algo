@@ -1,25 +1,15 @@
-def count_swaps_in_insertion_sort(arr):
-    swaps = 0
-    for i in range(1, len(arr)):
-        current = i
-        while current > 0 and arr[current] < arr[current - 1]:
-            # Swap the elements
-            arr[current], arr[current - 1] = arr[current - 1], arr[current]
-            swaps += 1
-            current -= 1
-    return swaps
+# Embedded input
+n = 6
+lst = [6, 10, 4, 5, 1, 2]
 
-def main():
-    # Input: number of elements
-    n = int(input())  # Read the number of elements
-    # Input: elements of the array
-    arr = list(map(int, input().split()))
-    
-    # Count swaps and sort the array
-    swap_count = count_swaps_in_insertion_sort(arr)
-    
-    # Output: number of swaps and the sorted array
-    print(swap_count)  # Output just the number of swaps
+count = 0
+for i in range(1, len(lst)):
+    k = i
+    while k > 0 and lst[k] < lst[k - 1]:
+        # Swap the elements
+        lst[k - 1], lst[k] = lst[k], lst[k - 1]
+        count += 1
+        k -= 1
 
-if __name__ == '__main__':
-    main()
+# Output the number of swaps
+print(count)
